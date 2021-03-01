@@ -1,5 +1,4 @@
-{    
-"detalles":[{
+{
 		"name": "contabilidad",
 		"departament": "Costos",
 		"details": [{
@@ -8,5 +7,4 @@
 			"age": 23,
 			"last_degree": "msc"
 		}]
-	}]
 }
