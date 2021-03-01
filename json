@@ -1,0 +1,10 @@
+    {
+		"name": "contabilidad",
+		"departament": "Costos",
+		"details": [{
+			"town": "tulua",
+			"boss": "Entrenador",
+			"age": 23,
+			"last_degree": "msc"
+		}]
+	}
