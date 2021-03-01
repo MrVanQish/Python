@@ -1,37 +1,23 @@
-{
-
-    "areas": [
-
-		{
-			"name": "contabilidad",
-			"departament": "Costos"
-		},
-		{
-			"name": "Finanzas",
-			"departament": "Costos"
-		},
-		{
-			"name": "Sistemas",
-			"departament": "TI"
-		},
-		{
-			"name": "Desarrollo",
-			"departament": "TI"
-		},
-		{
-			"name": "pqrs",
-			"departament": "Servicios"
-		},
-        {
-			"name": "dede",
-			"departament": "dede"
-		},
-        {
-			"name": "pqrdededs",
-			"departament": "Servicdededeios"
-		}
-	]
-
-}
-
-
+    [{
+		"name": "contabilidad",
+		"departament": "Costos",
+		"details": [{
+			"town": "tulua",
+			"boss": "Entrenador",
+			"age": 23,
+			"last_degree": "msc"
+		}]
+	},
+     {
+		"name": "pqrs",
+		"departament": "dededede",
+		"details": [{
+			"town": "tulua",
+			"boss": "Entrenador",
+			"age": 23,
+			"last_degree": "msc"
+		}]
+	}
+    
+    
+    ]
