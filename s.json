@@ -1,0 +1,37 @@
+{
+
+    "areas": [
+
+		{
+			"name": "contabilidad",
+			"departament": "Costos"
+		},
+		{
+			"name": "Finanzas",
+			"departament": "Costos"
+		},
+		{
+			"name": "Sistemas",
+			"departament": "TI"
+		},
+		{
+			"name": "Desarrollo",
+			"departament": "TI"
+		},
+		{
+			"name": "pqrs",
+			"departament": "Servicios"
+		}
+        {
+			"name": "dede",
+			"departament": "dede"
+		}
+        {
+			"name": "pqrdededs",
+			"departament": "Servicdededeios"
+		}
+	]
+
+}
+
+
