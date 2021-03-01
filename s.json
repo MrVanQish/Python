@@ -1,4 +1,4 @@
-    'detalles' : [{
+{'detalles' : [{
 		"name": "contabilidad",
 		"departament": "Costos",
 		"details": [{
@@ -7,17 +7,8 @@
 			"age": 23,
 			"last_degree": "msc"
 		}]
-	},
-     {
-		"name": "pqrs",
-		"departament": "dededede",
-		"details": [{
-			"town": "tulua",
-			"boss": "Entrenador",
-			"age": 23,
-			"last_degree": "msc"
-		}]
-	}
+
+  
     
-    
-    ]
+
+}
