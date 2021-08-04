@@ -1,0 +1,925 @@
+FORMAT: 1A
+HOST: https://polls.apiblueprint.org/
+
+# API Modulo PQRS AcademiAPP
+
+Esta API permitira la gestion de fornma segura e integral de las 
+siguientes insersiones (Peticiones, Quejas, Reclamos, 
+Solicitudes) por parte de usuarios
+anonimos o no anonimos.
+
+
+## Description Of Usual Server Responses:
+
+ 
++ 200 `OK` - the request was successful (some API calls may return 201 instead).
++ 201 `Created` - the request was successful and a resource was created.
++ 204 `No Content` - the request was successful but there is no representation to return (i.e. the response is empty).
++ 400 `Bad Request` - the request could not be understood or was missing required parameters.
++ 401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation.
++ 403 `Forbidden` - access denied.
++ 404 `Not Found` - resource was not found.
++ 405 `Method Not` Allowed - requested method is not supported for resource.
+
+# Group PQRS
+
+Modificar descripción
+
+## PQRS Collection [/position_plant_levels]
+
+### List All PQRS [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id_position_plant_level": 1,
+            "level": "Profesional",
+            "status": true
+        }
+
+### Create a New Level [POST]
+
+
++ Request (application/json)
+
+        {
+            "level": "Asesor"
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_position_plant_level: 1 (number, required) - Identificardor unico - pk
+        + name: Asesor (string) - Nombre del nivel
+        + status: true (boolean)
+
+    + Body
+
+            {
+                "id_position_plant_level": 1,
+                "level": "Asesor",
+                "status": true
+            }
+            
+### Update a Level [PUT]
+
++ Request (application/json)
+
+        {
+            "id_position_plant_level": 1,
+            "level": "Técnico",
+            "status": true
+        }
+
++ Response 201 (application/json)
+
+        {
+            "id_position_plant_level": 1,
+            "level": "Técnico",
+            "status": true
+        }
+
+# Group Teacher Category
+
+Modificar descripción.
+
+## Teacher Categories Collection [/teacher_categories]
+
+### List All Teacher Category [GET]
+
++ Response 200 (application/json)
+
+        {   
+            "id_teacher_category": 1,
+            "name": "Profesor Auxiliar",
+            "status": true
+        }
+        
+### Create a new Teacher Category [POST]
+
+
++ Request (application/json)
+
+        {   
+            "name": "Profesor Asistente",
+            "description": "Modificar"
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_position_plant_level: 1 (number, required) - Identificardor unico - pk
+        + name: Profesor Asistente (string) - Nombre de la categoría
+        + description: Modificar (string) - Descripción de la categoría
+        + status: true (boolean)
+
+    + Body
+
+            {
+                "id_teacher_category": 2,
+                "name": "Profesor Asistente",
+                "description": "Modificar",
+                "status": true
+            }
+            
+### Update a Teacher Category [PUT]
+
++ Request (application/json)
+
+        {
+            "id_teacher_category": 1,
+            "name": "Profesor Asociado",
+            "description": "Modificar",
+            "status": true
+        }
+
++ Response 201 (application/json)
+
+        {
+            "id_teacher_category": 1,
+            "name": "Profesor Asociado",
+            "description": "Modificar",
+            "status": true
+        }
+        
+# Group Position Plant
+
+Modificar descripción.
+
+## Position Plant Collection [/position_plant]
+
+### List All Position Plant [GET]
+
++ Response 200 (application/json)
+
+        {   
+            "id_position_plant": 1,
+            "name": "Jefe de oficina",
+            "full_name": "Asesor de planeación y calidad",
+            "id_position_plant_level": {
+                "id_position_plant_level" : 1,
+                "name": "Profesional"
+            },
+            "code": "115",
+            "grade": 04,
+            "quantity" 1,
+            "approve_quantity": 1
+        }
+
+### Create a new Position Plant[POST]
+
++ Request (application/json)
+
+        {   
+            "name": "Profesor Universitario",
+            "full_name": "Modificar"
+            "id_position_plant_level" : 1,
+            "code": "219",
+            "grade": "09",
+            "quantity": 1, 
+            "approve_quantity": 1
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_position_plant_level: 1 (number, required) - Identificardor unico - pk
+        + name: Profesor Universitario (string) - Nombre del cargo
+        + full_name: Modificar (string) -         Nombre completo del cargo
+        + code: 219 (string) - 
+        + grade: 09 (string) -
+        + quantity: 1 (number) - Cantidad de vacantes estimadas para el cargo
+        + approve_quantity: 1 (number) Cantidad de vacantes aprovadas para el cargo
+
+    + Body
+
+            {
+                "id_position_plant_level": 1,
+                "name": "Profesor Universitario",
+                "full_name": "Modificar"
+                "id_position_plant_level" : 1,
+                "code": "219",
+                "grade": "09",
+                "quantity": 1, 
+                "approve_quantity": 1
+            }
+            
+### Update a Position Plant [PUT]
+
++ Request (application/json)
+
+        {
+                "id_position_plant_level": 1,
+                "name": "Profesor Universitario",
+                "full_name": "Jefe departamento IT"
+                "id_position_plant_level" : 1,
+                "code": "219",
+                "grade": "09",
+                "quantity": 1, 
+                "approve_quantity": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+                "id_position_plant_level": 1,
+                "name": "Profesor Universitario",
+                "full_name": "Jefe departamento IT"
+                "id_position_plant_level" : 1,
+                "code": "219",
+                "grade": "09",
+                "quantity": 1, 
+                "approve_quantity": 1
+        }
+        
+# Group Position Plant People
+
+Modificar descripción.
+
+## Position Plant Collection [/position_plant_people]
+            
+### List All Position Plant People [GET]
++ Response 200 (application/json)
+
+        {   
+            "id_position_plant_person": 1,
+            "id_position_plant": {
+                "id_position_plant" : 1,
+                "name": "Profesional"
+                "full_name": "Jefe departamento IT"
+            },
+            "person": {
+                "id_person" : 1,
+                "first_name": "Juan"
+                "last_name": "Pérez"
+            },
+            "id_institution_area": {
+                "id_institution_area" : 7,
+                "description": "Profesional"
+                "status": "Dimensión Académica"
+            },
+            "appointment_type": {
+                "id_appointment_type" : 1,
+                "name": "Periodo de prueba o ascenso"
+                "is_mandatory_date": "true",
+                "start_date": "2021-04-01",
+                "end_date": "2021-5-01"
+            }
+        }
+
+### Create a new Position Plant People[POST]
+
++ Request (application/json)
+
+        {   
+            "id_person": 2,
+            "id_position_plant": 1,
+            "id_institution_area": 7,
+            "appointment_type": 1
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_position_plant_person: 1 (number, required) - Identificardor unico - pk
+        + id_person:  2 (number) - Identificador unico de una persona
+        + id_institution_area: 7 (number) - Identificador unico de un área
+        + appointment_type: 1 (number) - Identificador unico del tipo de nombramiento
+
+    + Body
+
+            {
+                
+            "id_position_plant_person": 1,
+            "id_position_plant": {
+                "id_position_plant" : 1,
+                "name": "Profesional"
+                "full_name": "Jefe departamento IT"
+            },
+            "person": {
+                "id_person" : 2,
+                "first_name": "Juan"
+                "last_name": "Pérez"
+            },
+            "id_institution_area": {
+                "id_institution_area" : 7,
+                "description": "Profesional"
+                "status": "Dimensión Académica"
+            },
+            "appointment_type": {
+                "id_appointment_type" : 1,
+                "name": "Periodo de prueba o ascenso"
+                "is_mandatory_date": "true",
+                "start_date": "2021-04-01",
+                "end_date": "2021-5-01"
+            }
+            }
+        
+        
+### Update a Position Plant People[PUT]
+
++ Request (application/json)
+
+        {   
+            "id_position_plant": 1,
+            "id_person": 3,
+            "id_institution_area": 7,
+            "appointment_type": 1
+        }
+
+
++ Response 201 (application/json)
+
+        {   
+            "id_position_plant_person": 1,
+            "id_position_plant": {
+                "id_position_plant" : 1,
+                "name": "Profesional"
+                "full_name": "Jefe departamento IT"
+            },
+            "person": {
+                "id_person" : ,
+                "first_name": "Giancarlo"
+                "last_name": "Mendoza"
+            },
+            "id_institution_area": {
+                "id_institution_area" : 7,
+                "description": "Profesional"
+                "status": "Dimensión Académica"
+            },
+            "appointment_type": {
+                "id_appointment_type" : 1,
+                "name": "Periodo de prueba o ascenso"
+                "is_mandatory_date": "true",
+                "start_date": "2021-04-01",
+                "end_date": "2021-5-01"
+            }
+        }
+        
+# Group Appointment Types
+
+Modificar descripción.
+
+## Appoinment Types Collection [/appointment_types]
+            
+### List All Appoinment Types [GET]
++ Response 200 (application/json)
+
+        {   
+            "id_appointment_type": 1,
+            "name": "Periodo de prueba o ascenso",
+            "status": true,
+            "is_mandatory_date": true,
+            "start_date": "2021-04-01",
+            "end_date": "2021-5-01"
+        }
+
+### Create a new Appoinment Type [POST]
+
++ Request (application/json)
+
+        {   
+            "name": "Libre nombramiento o remoción",
+            "status": true,
+            "is_mandatory_date": true,
+            "start_date": "2021-04-01",
+            "end_date": "2021-5-01"
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_appointment_type: 1 (number, required) - Identificardor unico - pk
+        + name: Libre nombramiento o remoción (string) - Nombre del tipo de nombramiento
+        + is_mandatory_date: true (boolean) - Atributo que permite establecer un rango entre fechas
+        + start_date: `2021-04-01` (string) - Fecha de incio
+        + end_date: `2021-5-01` (string) - Fecha de finalización
+ 
+    + Body
+
+        {   
+            "id_appointment_type": 1,
+            "name": "Periodo de prueba o ascenso",
+            "status": true,
+            "is_mandatory_date": true,
+            "start_date": "2021-04-01",
+            "end_date": "2021-5-01"
+        }
+        
+### Update a Appoinment Type[PUT]
+
++ Request (application/json)
+
+        {   
+            "id_appointment_type": 1,
+            "name": "Periodo de prueba o ascenso",
+            "status": false,
+            "is_mandatory_date": true,
+            "start_date": "2021-04-01",
+            "end_date": "2021-5-01"
+        }
+
+
++ Response 201 (application/json)
+
+        {   
+            "id_appointment_type": 1,
+            "name": "Periodo de prueba o ascenso",
+            "status": false,
+            "is_mandatory_date": true,
+            "start_date": "2021-04-01",
+            "end_date": "2021-5-01"
+        }
+
+# Group Administrative Situation Types
+
+Modificar descripción.
+
+## Administrative Situation Types Collection [/administrative_situation_types]
+
+### List All Administrative Situation Types [GET]
++ Response 200 (application/json)
+
+        {   
+            "id_administrative_situation_type": 1,
+            "type_name": "Comisión",
+            "status": true,
+            "description": "Modificar"
+        }
+        
+### Create a new Administrative Situation Type [POST]
+
++ Request (application/json)
+
+        {   
+            "type_name": "Comisión",
+            "status": true,
+            "description": "Modificar"
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_administrative_situation_type: 1 (number, required) - Identificardor unico - pk
+        + type_name: Libre nombramiento o remoción (string) - Nombre del tipo de situación administrativa
+        + status: true (boolean) 
+        + description: "Modificar" (string)
+ 
+    + Body
+
+        {   
+            "id_administrative_situation_type": 1,
+            "type_name": "Comisión",
+            "status": true,
+            "description": "Modificar"
+        }
+        
+### Update a Administrative Situation Type [PUT]
+
++ Request (application/json)
+
+        {   
+            "id_administrative_situation_type": 1,
+            "type_name": "Servicio activo",
+            "status": true,
+            "description": "Modificar"
+        }
+
+
++ Response 201 (application/json)
+
+        {   
+            "id_administrative_situation_type": 1,
+            "type_name": "Servicio activo",
+            "status": true,
+            "description": "Modificar"
+        }
+
+# Group Administrative Situations
+
+Modificar descripción.
+
+## Administrative Situations Collection [/administrative_situations]
+
+### List All Administrative Situations [GET]
++ Response 200 (application/json)
+
+        {   
+            "id_administrative_situation_type": 1,
+            "name": "Ordinaria",
+            "administrative_situation_types": {
+                "id_administrative_situation_type": 1,
+                "type_name": "Servicio activo",
+                "description": "Modificar",
+                "status": true
+            },
+            "status": true,
+            "description": "Modificar"
+        }
+        
+### Create a new Administrative Situation [POST]
+
++ Request (application/json)
+
+        {   
+            "id_administrative_situation_type": 1,
+            "name": "Ordinaria",
+            "id_administrative_situation_type": 1,
+            "status": true,
+            "description": "Modificar"
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_administrative_situation_type: 1 (number, required) - Identificardor unico - pk
+        + name: Libre nombramiento o remoción (string) - Nombre de la situación administrativa
+        + id_administrative_situation_type: 1 (number) - Identificardor unico del tipo de situación administrativa - pk
+        + status: true (boolean) 
+        + description: "Modificar" (string)
+ 
+    + Body
+
+        {   
+            "id_administrative_situation_type": 1,
+            "name": "Ordinaria",
+            "administrative_situation_types": {
+                "id_administrative_situation_type": 1,
+                "type_name": "Servicio activo",
+                "description": "Modificar",
+                "status": true
+            },
+            "status": true,
+            "description": "Modificar"
+        }
+        
+### Update a Administrative Situation [PUT]
+
++ Request (application/json)
+
+        {   
+            "id_administrative_situation_type": 1,
+            "name": "Enfermedad",
+            "id_administrative_situation_type": 1,
+            "status": true,
+            "description": "Modificar"
+        }
+
+
++ Response 201 (application/json)
+
+        {   
+            "id_administrative_situation_type": 1,
+            "name": "Enfermedad",
+            "administrative_situation_types": {
+                "id_administrative_situation_type": 1,
+                "type_name": "Servicio activo",
+                "description": "Modificar",
+                "status": true
+            },
+            "status": true,
+            "description": "Modificar"
+        }
+        
+# Group Administrative Situation Employees
+
+Modificar descripción.
+
+## Administrative Situation Employees Collection [/administrative_situation_emplo]
+
+
+### List All Administrative Situation Employees [GET]
++ Response 200 (application/json)
+
+        {   
+            "id_administrative_situation_employee": 1,
+            "person": {
+                "id_person": 1,
+                "first_name": "Juan",
+                "last_name": "Pérez",
+            },
+            "administrative_situation_types": {
+                "id_administrative_situation": 1,
+                "name": "Servicio activo",
+                "description": "Modificar",
+            },
+            "start_date": 2021-04-01,
+            "end_date": 2021-05-01,
+            "observation": "Modificar",
+            "support_document": "Documento",
+        }
+        
+### Create a new Administrative Situation Employee [POST]
+
++ Request (application/json)
+
+        {   
+            "id_administrative_situation_employee": 1,
+            "id_person": 1,
+            "id_administrative_situation": 1,
+            "start_date": 2021-04-01,
+            "end_date": 2021-05-01,
+            "observation": "Modificar",
+            "support_document": "Documento",
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_administrative_situation_employee: 1 (number, required) - Identificardor unico - pk
+        + id_person: 1 (number) - Persona a la cual se le relacionará la situación administrativa
+        + id_administrative_situation: 1 (number) - Identificardor unico de la situación administrativa - pk
+        + start_date: `2021-04-01` (string) - Fecha de inicio
+        + end_date: `2021-05-01` (string) - Fecha de finalizacion
+        + observation: Modificar (string) - Observación
+        + support_document: Documento (string) - Documento adjunto de la situación administrativa
+ 
+    + Body
+
+        {   
+            "id_administrative_situation_employee": 1,
+            "person": {
+                "id_person": 1,
+                "first_name": "Juan",
+                "last_name": "Pérez",
+            },
+            "administrative_situation_types": {
+                "id_administrative_situation": 1,
+                "name": "Servicio activo",
+                "description": "Modificar",
+            },
+            "start_date": 2021-04-01,
+            "end_date": 2021-05-01,
+            "observation": "Modificar",
+            "support_document": "Documento",
+        }
+
+### Update a Administrative Situation Employee [PUT]
+
++ Request (application/json)
+
+        {   
+            "id_administrative_situation_employee": 1,
+            "id_person": 1,
+            "id_administrative_situation": 1,
+            "start_date": 2021-04-01,
+            "end_date": 2021-05-02,
+            "observation": "Modificar",
+            "support_document": "Documento",
+        }
+
+
++ Response 201 (application/json)
+
+        {   
+            "id_administrative_situation_employee": 1,
+            "person": {
+                "id_person": 1,
+                "first_name": "Juan",
+                "last_name": "Pérez",
+            },
+            "administrative_situation_types": {
+                "id_administrative_situation": 1,
+                "name": "Servicio activo",
+                "description": "Modificar",
+            },
+            "start_date": 2021-04-01,
+            "end_date": 2021-05-02,
+            "observation": "Modificar",
+            "support_document": "Documento",
+        }
+
+# Group Resumes
+
+Modificar descripción.
+
+## Resumes Collection [/administrative_situation_emplo]
+
+
+### List All Resumes [GET]
++ Response 200 (application/json)
+
+        {
+            "id_resume": 1, 
+            "id_person": 71,
+            "basic_middle_education": {
+                "title": "ddd",
+                "grade_date": "2010-04-01",
+                "id_level": 4
+            },
+            "higher_education": {
+                "approve_semesters": "5",
+                "is_graduate": true,
+                "title": "Ingenierio de sistemas",
+                "end_date": "2021-04-01",
+                "professional_card_number": "12212",
+                "id_academic_modality": 1
+            },
+            "employee_languages": {
+                "id_language": 1,
+                "speak_skill": "R",
+                "read_skill": "R",
+                "write_skill": "R"
+            },
+                "work_experience": {
+                "is_current_employment": true,
+                "company_name": "WebClouster",
+                "email_company": "webclouster@gmail.com",
+                "contact_number_company": "3223211",
+                "start_date": "1999-04-01",
+                "end_date": "2021-05-02",
+                "position": "Desarrollador",
+                "dependency": "IT",
+                "address": "shjdaas112",
+                "id_type_company": 1,
+                "id_town": 1
+            }
+    }
+
+### Create a new Resume [POST]
+
++ Request (application/json)
+
+        {   
+            "id_person": 71,
+            "basic_middle_education": {
+                "title": "Bachiller",
+                "grade_date": "2010-04-01",
+                "id_level": 4
+            },
+            "higher_education": {
+                "approve_semesters": "5",
+                "is_graduate": true,
+                "title": "Ingenierio de sistemas",
+                "end_date": "2021-04-01",
+                "professional_card_number": "12212",
+                "id_academic_modality": 1
+            },
+            "employee_languages": {
+                "id_language": 1,
+                "speak_skill": "R",
+                "read_skill": "R",
+                "write_skill": "R"
+            },
+                "work_experience": {
+                "is_current_employment": true,
+                "company_name": "WebClouster",
+                "email_company": "webclouster@gmail.com",
+                "contact_number_company": "3223211",
+                "start_date": "1999-04-01",
+                "end_date": "2021-05-02",
+                "position": "Desarrollador",
+                "dependency": "IT",
+                "address": "AV. 17 # 45B",
+                "id_type_company": 1,
+                "id_town": 1
+        }    
+
++ Response 201 (application/json)
+
+    + Attributes (object)
+        + id_person: 1 (number) - Persona a la cual se le relacionará la situación administrativa - pk
+        + basic_middle_education: (array) - Información básica y media de una persona
+            + title: Bachiller (string) - Titulo obtenido
+            + grade_date: `2010-04-01` - Fecha de gradución
+            + id_level: 4 (number) - Nivel acádemico alcanzado
+        + higher_education: (array) - Información acádemica superior de una persona
+            + approve_semesters: 5 (string) - Número de semestres aprovados
+            + is_graduate: true (boolean) - ¿Es graduado?
+            + title: Ingeniero de Sistemas (string) - Titulo obtenido
+            + end_date: `2021-04-01` - Fecha de gradución
+            + professional_card_number: 12212 (string) - Número de la tarjeta profesional
+        + employee_languages: (array) - Información sobre los lenguajes que habla una persona.
+            + id_language: 1 (number) - Lenguaje que habla una persona
+            + speak_skill: R (string) - Nivel en la habilidad de habla del idioma
+            + read_skill: R (string) - Nivel en la habilidad de lectura del idioma
+            + write_skill: R (string) - Nivel en la habilidad de escritura del idioma
+        + work_experience: (array) - Información de la experiencia de una persona
+            + is_current_employment: true (boolean) - ¿Empleo actual?
+            + company_name: WebClouster (string) - Nombre de la empresa
+            + email_company: webclouster@gmail.com (string) - Email de la empresa
+            + contact_number_company: 3223211 (string) - Número teléfonico de la empresa
+            + start_date: `1999-04-01` (string) - Fecha en la que ingresó a trabajar en la empresa
+            + end_date: `2021-05-02` (string) - Fecha en la que 
+            + position: Desarrollador (string) - Posición que desempeño en la empresa
+            + dependency: IT (string) - Dependencia 
+            + address: AV. 17 # 45B (string) - Dirección de la empresa
+            + id_type_company: 1 (number) - Tipo de la empresa
+            + id_town: 1 (number) - Ciudad donde se encuentra ubicada la empresa
+            
+
+ 
+    + Body
+
+        {   
+            "id_person": 71,
+            "basic_middle_education": {
+                "title": "Bachiller",
+                "grade_date": "2010-04-01",
+                "id_level": 4
+            },
+            "higher_education": {
+                "approve_semesters": "5",
+                "is_graduate": true,
+                "title": "Ingenierio de sistemas",
+                "end_date": "2021-04-01",
+                "professional_card_number": "12212",
+                "id_academic_modality": 1
+            },
+            "employee_languages": {
+                "id_language": 1,
+                "speak_skill": "R",
+                "read_skill": "R",
+                "write_skill": "R"
+            },
+                "work_experience": {
+                "is_current_employment": true,
+                "company_name": "WebClouster",
+                "email_company": "webclouster@gmail.com",
+                "contact_number_company": "3223211",
+                "start_date": "1999-04-01",
+                "end_date": "2021-05-02",
+                "position": "Desarrollador",
+                "dependency": "IT",
+                "address": "AV. 17 # 45B",
+                "id_type_company": 1,
+                "id_town": 1
+        }   
+        
+### Update a Resume [PUT]
+
++ Request (application/json)
+
+        {   
+            "id_resume": 1,
+            "id_person": 71,
+            "basic_middle_education_update": {
+                "title": "Bachiller Comercial",
+                "grade_date": "2010-04-02",
+                "id_level": 4
+            },
+            "higher_education": {
+                "approve_semesters": "5",
+                "is_graduate": true,
+                "title": "Ingenierio de sistemas",
+                "end_date": "2021-04-01",
+                "professional_card_number": "12212",
+                "id_academic_modality": 1
+            },
+            "employee_languages": {
+                "id_language": 1,
+                "speak_skill": "R",
+                "read_skill": "R",
+                "write_skill": "R"
+            },
+                "work_experience": {
+                "is_current_employment": true,
+                "company_name": "WebClouster",
+                "email_company": "webclouster@gmail.com",
+                "contact_number_company": "3223211",
+                "start_date": "1999-04-01",
+                "end_date": "2021-05-02",
+                "position": "Desarrollador",
+                "dependency": "IT",
+                "address": "AV. 17 # 45B",
+                "id_type_company": 1,
+                "id_town": 1
+        }  
+
+
++ Response 201 (application/json)
+
+        {   
+            "id_person": 71,
+            "basic_middle_education": {
+                "title": "Bachiller Comercial",
+                "grade_date": "2010-04-02",
+                "id_level": 4
+            },
+            "higher_education": {
+                "approve_semesters": "5",
+                "is_graduate": true,
+                "title": "Ingenierio de sistemas",
+                "end_date": "2021-04-01",
+                "professional_card_number": "12212",
+                "id_academic_modality": 1
+            },
+            "employee_languages": {
+                "id_language": 1,
+                "speak_skill": "R",
+                "read_skill": "R",
+                "write_skill": "R"
+            },
+                "work_experience": {
+                "is_current_employment": true,
+                "company_name": "WebClouster",
+                "email_company": "webclouster@gmail.com",
+                "contact_number_company": "3223211",
+                "start_date": "1999-04-01",
+                "end_date": "2021-05-02",
+                "position": "Desarrollador",
+                "dependency": "IT",
+                "address": "AV. 17 # 45B",
+                "id_type_company": 1,
+                "id_town": 1
+        }
